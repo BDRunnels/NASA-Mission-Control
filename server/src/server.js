@@ -1,5 +1,8 @@
 const http = require('http');
 
+// DOTENV to populate environment in all the files before we import them (especially mongo service).
+require('dotenv').config();
+
 const app = require('./app')
 const { mongoConnect } = require('./services/mongo');
 const { loadPlanetsData } = require('./models/planets.model');
