@@ -71,3 +71,15 @@ mongoDb user:
         - If you change the schema of your collection, can increase to show new data from old schema.
         - Good idea to filter out when returning the data.
         
+* SECURITY *
+    - Browser features: CORS
+        * Prevents unauth'd redirection.
+    - Least Privileges Model
+    - npm audit
+    - USING AWS OAUTH --> https with SSL/TLS with node servers.
+    
+* Github Actions *
+    - CI/CD Pipeline
+    - Works off 'triggers' --> pushing code.
+    - Build / Test / Deploy
+    - .yml --> Yamel, script our workflows. "Workflow configuration file".

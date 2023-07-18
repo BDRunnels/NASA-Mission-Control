@@ -1,11 +1,13 @@
 // API Tests
 const request = require('supertest'); // makes http requests AGAINST the API.
 const app = require('../../app');
+const { loadPlanetsData } = require('../../models/planets.model');
 const { mongoConnect, mongoDisconnect } = require('../../services/mongo');
 
 describe('Launches API', () => {
     beforeAll(async () => {
         await mongoConnect();
+        await loadPlanetsData();
     });
 
     afterAll(async () => {

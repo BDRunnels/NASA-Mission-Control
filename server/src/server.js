@@ -13,9 +13,9 @@ const server = http.createServer(app);
 const PORT = process.env.PORT || 8000;
 
 async function startServer() {
-    await mongoConnect();    
-    await loadPlanetsData();
-    await loadLaunchData();
+    await mongoConnect();   // Connect to mongo
+    await loadPlanetsData(); // load planets from kepler_data.csv
+    await loadLaunchData(); // load launches from SpaceX
     
     server.listen(PORT, () => {
         console.log(`listening on port ${PORT}`);
