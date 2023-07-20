@@ -83,3 +83,24 @@ mongoDb user:
     - Works off 'triggers' --> pushing code.
     - Build / Test / Deploy
     - .yml --> Yamel, script our workflows. "Workflow configuration file".
+
+* DEPLOYING TO THE CLOUD *
+    - Serverless vs Containers
+        Serverless = still have servers, but cloud configures the servers (OS doesn't matter, only WHEN code will run and what it does). AWS Lambda
+        Containers = Docker. Build containers to bundle / share applications. Can run anywhere; server, computer, etc. Incredible flexibility.
+
+            * What is a container?
+                Small boxes containing our apps that run anywhere on our desktop (linux, windows, cloud, physical data center).
+                Package our app in a container with our dependencies in a well-tested combination. 
+                Docker makes sure it can run on any machine.
+                Uses Host Operating System.
+                Applications are separated from the Host OS.
+                Instead of having a VM of 10gbs taking up HD, a container may take up 10mbs. Faster load time.
+
+            * What is a Virtual Machine (VM)?
+                Create a virtual environment on top of the infrastructure and 'hypervisor'.
+                Running Windows 10 on Mac OS in a 'sandbox' environment.
+                Provide stronger isolation than containers do, due to the layers, to ensure information is not leaked between machines.
+
+    - AWS from Amazon, Azure from Microsoft, Google Cloud from Google.
+    - USING AWS**** top cloud provider in the world.
