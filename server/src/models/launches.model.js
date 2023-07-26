@@ -8,21 +8,6 @@ const planets = require('./planets.mongo');
 // let latestFlightNumber = 100;
 const DEFAULT_FLIGHT_NUMBER = 100;
 
-// const launch = {
-//     flightNumber: 100, // flight_number in SpaceX API
-//     mission: 'Kepler Exploration X', // name in SpaceX API
-//     rocket: 'Explorer IS1', // rocket.name in SpaceX API
-//     launchDate: new Date('December 27, 2030'), // date_local
-//     target: 'Kepler-442 b', // not applicable
-//     customers: ['ZTM', 'NASA'], // payload.customers for each payload
-//     upcoming: true, // upcoming
-//     success: true // success
-// };
-
-// saveLaunch(launch)
-
-// launches.set(launch.flightNumber, launch);
-
 // LOAD launches data SpaceX
 const SPACEX_API_URL = 'https://api.spacexdata.com/v5/launches/query'
 
@@ -118,7 +103,6 @@ async function getLatestFlightNumber() {
 
 // GET launches
 async function getAllLaunches(skip, limit) {
-    // return Array.from(launches.values());
     // {} will return all launches in first parameter. Excluding v & id. 
     return await launchesDatabase.find({}, {
         '__v': 0,
@@ -134,20 +118,6 @@ async function saveLaunch(launch) {
         upsert: true
     });
 };
-
-// POST launch
-// function addNewLaunch(launch) {
-//     latestFlightNumber++;
-//     launches.set(
-//         latestFlightNumber, 
-//         Object.assign(launch, {                 // Object.assign will set the new value of a launch's flightNumber with the latestFlightNumber variable.
-//             success: true,
-//             upcoming: true,
-//             customers: ['Zero to Mastery', 'NASA'],
-//             flightNumber: latestFlightNumber
-//         })
-//     );
-// };
 
 // POST launch in mongoDB
 async function scheduleNewLaunch(launch) {
@@ -174,10 +144,6 @@ async function scheduleNewLaunch(launch) {
 
 // DELETE launch by id
 async function abortLaunchById(launchId) {
-    // const aborted = launches.get(launchId);
-    // aborted.upcoming = false;
-    // aborted.success = false;
-    // return aborted;
 
     const aborted =  await launchesDatabase.updateOne({
         flightNumber: launchId
